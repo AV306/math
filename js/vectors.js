@@ -142,3 +142,11 @@ class Vec3
   
   // TODO: Implement
 }
+
+class Vec4
+{
+  vec3;
+  w;
+  
+  // tODO
+}
