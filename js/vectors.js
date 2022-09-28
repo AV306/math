@@ -140,6 +140,80 @@ class Vec3
   z;
   length;
   
+  constructor( x, y, z )
+  {
+    this.x = x;
+    this.y = y;
+    this.z = z;
+    
+    this.length = Math.sqrt(
+      x*x + y*y + z*z
+    );
+  }
+  
+  addScalar( s )
+  {
+    return new Vec3(
+      this.x + s,
+      this.y + s,
+      this.z + s
+    );
+  }
+  
+  addVec( v )
+  {
+    return new Vec3(
+      this.x + v.x,
+      this.y + v.y,
+      this.z + v.z
+    );
+  }
+  
+  subScalar( s )
+  {
+    return this.addScalar( -s );
+  }
+  
+  subVec( v )
+  {
+    return new Vec3(
+      this.x - v.x,
+      this.y - v.y,
+      this.z - v.z
+    );
+  }
+  
+  multScalar( s )
+  {
+    // Uniform scaling
+    return new Vec3(
+      this.x * s,
+      this.y * s,
+      this.z * s
+    );
+  }
+  
+  scale( x, y, z )
+  {
+    return new Vec3(
+      this.x * x,
+      this.y * y,
+      this.z * z
+    );
+  }
+  
+  dot( v )
+  {
+    return this.x * v.x + 
+      this.y * v.y +
+      this.z * v.z;
+  }
+  
+  cross( v )
+  {
+    throw "Unsupported operation";
+  }
+  
   // TODO: Implement
 }
 
@@ -148,5 +222,5 @@ class Vec4
   vec3;
   w;
   
-  // tODO
+  constructor( x, y, z, w ) {}
 }
