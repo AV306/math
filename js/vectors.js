@@ -20,12 +20,24 @@ class Vec2
     );
   }
   
+  addVecInPlace( other )
+  {
+    this.x + other.x;
+    this.y + other.y;
+  }
+  
   addScalar( x, y )
   {
     return new Vec2(
       this.x + x,
       this.y + y
     );
+  }
+  
+  addScalarInPlace( x, y )
+  {
+    this.x + x;
+     this.y + y;
   }
   
   subVec( other )
@@ -36,12 +48,24 @@ class Vec2
     );
   }
   
+  subVecInPlace( other )
+  {
+    this.x - other.x;
+    this.y - other.y;
+  }
+  
   subScalar( x, y )
   {
     return new Vec2(
       this.x - x,
       this.y - y
     );
+  }
+  
+  subScalarInPlace( x, y )
+  {
+    this.x - x;
+    this.y - y;
   }
   
   multVec( other )
@@ -52,12 +76,24 @@ class Vec2
     );
   }
   
+  multVecInPlace( other )
+  {
+    this.x * other.x;
+    this.y * other.y;
+  }
+  
   multScalar( s )
   {
     return new Vec2(
       this.x * s,
       this.y * s
     );
+  }
+  
+  multScalarInPlace( s )
+  {
+    this.x * s;
+    this.y * s;
   }
   
   divideScalar( s )
@@ -68,6 +104,12 @@ class Vec2
     );
   }
   
+  divideScalarInPlace( s )
+  {
+    this.x / s,
+    this.y / s;
+  }
+  
   dot( other )
   {
     return (this.x * other.x) + (this.y * other.y);
@@ -76,6 +118,14 @@ class Vec2
   angleFrom( other )
   {
     return Math.acos( this.dot( other ) / (this.length * other.length ) );
+  }
+  
+  distanceFrom( other )
+  {
+    return Math.sqrt(
+      (this.x - other.x) ** 2 + 
+      (this.y - other.y) ** 2
+    );
   }
   
   rotate( theta )
@@ -115,22 +165,17 @@ class Vec2
       -this.y
     )
   }
-  
-  /*
-  // Implementation dependent
-  convertPos()
-  {
-    return new Vec2(
-      halfW + this.x,
-      halfH - this.y
-    );
-  }
-  */
-  
+   
   toString()
   {
     return `(${this.x}, ${this.y})`;
   }
+}
+
+
+function clamp( v, min, max )
+{
+  return Math.min( Math.max( v, min), max );
 }
 
 class Vec3
