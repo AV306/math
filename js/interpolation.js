@@ -4,8 +4,8 @@ function clamp( min, max, val )
 }
 
 function lerp( min, max, val )
-{ 
-  var d = max - min;
+{
+  var d = min <= max ? max - min : min - max;
   
   return clamp( min, max, min + (d * val) );
 }
