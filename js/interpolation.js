@@ -42,7 +42,7 @@ function smoothstep( min, max, val )
   return lerp( min, max, val );
 }
 
-curveInterpolate( curve, min, max, val )
+function curveInterpolate( curve, min, max, val )
 {
   val = curve.eval( val );
   return lerp( min, max, val );
