@@ -22,7 +22,7 @@ class Curve
   eval( x )
   {
     // x should be normalised
-    return a * x**3 + b * x**2 + c * x + d;
+    return this.a * x**3 + this.b * x**2 + this.c * x + this.d;
   }
 }
 
