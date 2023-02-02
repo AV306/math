@@ -24,6 +24,7 @@ class Vec2
   {
     this.x + other.x;
     this.y + other.y;
+    return this;
   }
   
   addScalar( x, y )
@@ -37,7 +38,8 @@ class Vec2
   addScalarInPlace( x, y )
   {
     this.x + x;
-     this.y + y;
+    this.y + y;
+    return this;
   }
   
   subVec( other )
@@ -52,6 +54,7 @@ class Vec2
   {
     this.x - other.x;
     this.y - other.y;
+    return this;
   }
   
   subScalar( x, y )
@@ -66,6 +69,7 @@ class Vec2
   {
     this.x - x;
     this.y - y;
+    return this;
   }
   
   multVec( other )
@@ -80,6 +84,7 @@ class Vec2
   {
     this.x * other.x;
     this.y * other.y;
+    return this;
   }
   
   multScalar( s )
@@ -94,6 +99,7 @@ class Vec2
   {
     this.x * s;
     this.y * s;
+    return this;
   }
   
   divideScalar( s )
@@ -108,6 +114,7 @@ class Vec2
   {
     this.x / s,
     this.y / s;
+    return this;
   }
   
   dot( other )
@@ -136,6 +143,13 @@ class Vec2
     );
   }
   
+  rotateInPlace( theta )
+  {
+    this.x = this.x * cos( theta ) - this.y * sin( theta );
+    this.y =this.x * sin( theta ) + this.y * cos( theta );
+    return this;
+  }
+  
   magnitude()
   {
     return this.length;
@@ -150,12 +164,28 @@ class Vec2
     );
   }
   
+  normaliseInPlace()
+  {
+    if ( this.length == 0 ) return this;
+    else
+    {
+      this.x /= this.length;
+      this.y /= this.length;
+    }
+  }
+  
   inverseX()
   {
     return new Vec2(
       -this.x,
       this.y
     )
+  }
+  
+  inverseXInPlace()
+  {
+    this.x = -this.x;
+    return this;
   }
   
   inverseY()
@@ -165,17 +195,17 @@ class Vec2
       -this.y
     )
   }
+  
+  inverseYInPlace()
+  {
+    this.y = -this.y;
+    return this;
+  }
    
   toString()
   {
     return `(${this.x}, ${this.y})`;
   }
-}
-
-
-function clamp( v, min, max )
-{
-  return Math.min( Math.max( v, min), max );
 }
 
 class Vec3
