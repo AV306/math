@@ -1,7 +1,6 @@
-function clamp( min, max, val )
-{
-  return Math.min( Math.max( min, val ), max );
-}
+/**
+ * WARNING: This requires util.js to be imported BEFORE this.
+ */
 
 function lerp( min, max, val )
 {
