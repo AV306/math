@@ -26,6 +26,8 @@ class Curve
   }
 }
 
+const TEST_CURVE = new Curve( 2.4, -5.4, 4, 0 );
+
 function lerp( min, max, val )
 {
   var d =  max - min;
@@ -37,5 +39,11 @@ function smoothstep( min, max, val )
 {
   val = val * val * (3 - 2*val);
   
+  return lerp( min, max, val );
+}
+
+curveInterpolate( curve, min, max, val )
+{
+  val = curve.eval( val );
   return lerp( min, max, val );
 }
