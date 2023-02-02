@@ -1,4 +1,4 @@
-wrap( min, max, val )
+function wrap( min, max, val )
 {
   var s = max - min;
   val = Math.floor( val % s );
