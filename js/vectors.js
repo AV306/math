@@ -166,12 +166,13 @@ class Vec2
   
   normaliseInPlace()
   {
-    if ( this.length == 0 ) return this;
-    else
+    if ( this.length != 0 )
     {
       this.x /= this.length;
       this.y /= this.length;
     }
+    
+    return this;
   }
   
   inverseX()
