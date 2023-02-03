@@ -7,7 +7,7 @@ function wrap( min, max, val )
   return val;
 }
 
-function clamp( v, min, max )
+function clamp( min, max, v )
 {
   return Math.min( Math.max( v, min), max );
 }
