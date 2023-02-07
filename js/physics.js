@@ -1,6 +1,9 @@
 // REQUIRES vectors.js, angles.js
 
-class Transform2D
+import "vectors.js";
+import "angles.js";
+
+export class Transform2D
 {
   pos;
   velocity;
