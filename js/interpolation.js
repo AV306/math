@@ -2,6 +2,8 @@
  * WARNING: This requires util.js to be imported BEFORE this.
  */
 
+import "util.js";
+
 export class Curve
 {
   // Supports up to cubic curves
