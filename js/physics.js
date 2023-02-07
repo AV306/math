@@ -1,7 +1,7 @@
 // REQUIRES vectors.js, angles.js
 
-import "vectors.js";
-import "angles.js";
+import Vec2 from "vectors.js";
+import wrapDegrees from "angles.js";
 
 export class Transform2D
 {
