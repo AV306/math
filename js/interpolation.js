@@ -2,7 +2,7 @@
  * WARNING: This requires util.js to be imported BEFORE this.
  */
 
-import clamp from "util.js";
+import clamp from "./util.js";
 
 export class Curve
 {
