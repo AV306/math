@@ -1,4 +1,4 @@
-function wrap( min, max, val )
+export function wrap( min, max, val )
 {
   var s = max - min;
   val = Math.floor( val % s );
@@ -7,12 +7,12 @@ function wrap( min, max, val )
   return val;
 }
 
-function clamp( min, max, v )
+export function clamp( min, max, v )
 {
   return Math.min( Math.max( v, min), max );
 }
 
-function mapRange( vmin, vmax, tmin, tmax, val )
+export function mapRange( vmin, vmax, tmin, tmax, val )
 {
   var vrange = vmax - vmin;
   var trange = tmax - tmin;

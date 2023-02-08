@@ -2,8 +2,9 @@
  * WARNING: This requires util.js to be imported BEFORE this.
  */
 
+import clamp from "./util.js";
 
-class Curve
+export class Curve
 {
   // Supports up to cubic curves
   // ax^3+bx^2+cx+d
@@ -27,23 +28,23 @@ class Curve
   }
 }
 
-const TEST_CURVE = new Curve( 2.4, -5.4, 4, 0 );
+export const TEST_CURVE = new Curve( 2.4, -5.4, 4, 0 );
 
-function lerp( min, max, val )
+export function lerp( min, max, val )
 {
   var d =  max - min;
   
   return clamp( min, max, min + (d * val) );
 }
 
-function smoothstep( min, max, val )
+export function smoothstep( min, max, val )
 {
   val = val * val * (3 - 2*val);
   
   return lerp( min, max, val );
 }
 
-function curveInterpolate( curve, min, max, val )
+export function curveInterpolate( curve, min, max, val )
 {
   val = curve.eval( val );
   return lerp( min, max, val );

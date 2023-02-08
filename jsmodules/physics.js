@@ -1,6 +1,9 @@
 // REQUIRES vectors.js, angles.js
 
-class Transform2D
+import Vec2 from "./vectors.js";
+import wrapDegrees from "./angles.js";
+
+export class Transform2D
 {
   pos;
   velocity;
