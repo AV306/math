@@ -22,8 +22,8 @@ class Vec2
   
   addVecInPlace( other )
   {
-    this.x + other.x;
-    this.y + other.y;
+    this.x += other.x;
+    this.y += other.y;
     return this;
   }
   
@@ -37,8 +37,8 @@ class Vec2
   
   addScalarInPlace( x, y )
   {
-    this.x + x;
-    this.y + y;
+    this.x += x;
+    this.y += y;
     return this;
   }
   
@@ -57,7 +57,7 @@ class Vec2
     return this;
   }
   
-  subScalar( x, y )
+  subScalars( x, y )
   {
     return new Vec2(
       this.x - x,
@@ -65,10 +65,10 @@ class Vec2
     );
   }
   
-  subScalarInPlace( x, y )
+  subScalarsInPlace( x, y )
   {
-    this.x - x;
-    this.y - y;
+    this.x -= x;
+    this.y -= y;
     return this;
   }
   
@@ -82,8 +82,8 @@ class Vec2
   
   multVecInPlace( other )
   {
-    this.x * other.x;
-    this.y * other.y;
+    this.x *= other.x;
+    this.y *= other.y;
     return this;
   }
   
@@ -97,8 +97,8 @@ class Vec2
   
   multScalarInPlace( s )
   {
-    this.x * s;
-    this.y * s;
+    this.x *= s;
+    this.y *=  s;
     return this;
   }
   
@@ -112,8 +112,8 @@ class Vec2
   
   divideScalarInPlace( s )
   {
-    this.x / s,
-    this.y / s;
+    this.x /= s,
+    this.y /= s;
     return this;
   }
   
