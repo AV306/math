@@ -117,6 +117,12 @@ class Vec2
     return this;
   }
   
+  reset()
+  {
+    this.x = 0;
+    this.y = 0;
+  }
+  
   dot( other )
   {
     return (this.x * other.x) + (this.y * other.y);
