@@ -12,6 +12,12 @@ class Vec2
     this.length = Math.sqrt( this.x**2 + this.y**2 );
   }
   
+  set( x, y )
+  {
+    this.x = x;
+    this.y = y;
+  }
+  
   addVec( other )
   {
     return new Vec2(
