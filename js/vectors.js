@@ -93,7 +93,7 @@ class Vec2
     return this;
   }
   
-  subScalars( x, y )
+  subScalar( x, y )
   {
     return new Vec2(
       this.x - x,
@@ -101,7 +101,7 @@ class Vec2
     );
   }
   
-  subScalarsInPlace( x, y )
+  subScalarInPlace( x, y )
   {
     this.x -= x;
     this.y -= y;
