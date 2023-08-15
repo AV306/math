@@ -22,6 +22,28 @@ class Vec2
   {
     return new Vec2( this.x, this.y );
   }
+
+  round()
+  {
+    return new Vec2( Math.round( this.x ), Math.round( this.y ) );
+  }
+
+  roundInPlace()
+  {
+    this.x = Math.round( this.x );
+    this.y = Math.round( this.y );
+  }
+
+  floor()
+  {
+    return new Vec2( Math.floor( this.x ), Math.floor( this.y ) );
+  }
+
+  floorInPlace()
+  {
+    this.x = Math.floor( this.x );
+    this.y = Math.floor( this.y );
+  }
   
   addVec( other )
   {
