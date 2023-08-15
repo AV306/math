@@ -16,6 +16,7 @@ class Vec2
   {
     this.x = x;
     this.y = y;
+    return this;
   }
 
   clone()
@@ -32,6 +33,7 @@ class Vec2
   {
     this.x = Math.round( this.x );
     this.y = Math.round( this.y );
+    return this;
   }
 
   floor()
@@ -43,6 +45,7 @@ class Vec2
   {
     this.x = Math.floor( this.x );
     this.y = Math.floor( this.y );
+    return this;
   }
   
   addVec( other )
