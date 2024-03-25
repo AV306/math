@@ -24,6 +24,11 @@ class Vec2
     return new Vec2( this.x, this.y );
   }
 
+  copy()
+  {
+    return this.clone();
+  }
+
   round()
   {
     return new Vec2( Math.round( this.x ), Math.round( this.y ) );
@@ -108,7 +113,7 @@ class Vec2
     return this;
   }
   
-  multVec( other )
+  multVecComponents( other )
   {
     return new Vec2(
       this.x * other.x,
@@ -116,7 +121,7 @@ class Vec2
     );
   }
   
-  multVecInPlace( other )
+  multVecComponentsInPlace( other )
   {
     this.x *= other.x;
     this.y *= other.y;
@@ -130,12 +135,22 @@ class Vec2
       this.y * s
     );
   }
+
+  scale( s )
+  {
+    return this.multScalar( s );
+  }
   
   multScalarInPlace( s )
   {
     this.x *= s;
     this.y *=  s;
     return this;
+  }
+
+  scaleInPlace( s )
+  {
+    return this.multScalarInPlace( s );
   }
   
   divideScalar( s )
@@ -216,6 +231,18 @@ class Vec2
     
     return this;
   }
+
+  inverse()
+  {
+    return new Vec2( -this.x, -this.y );
+  }
+
+  inverseInPlace()
+  {
+    this.x = -this.x;
+    this.y -= this.y;
+    return this;
+  }
   
   inverseX()
   {
@@ -277,6 +304,14 @@ class Vec3
       this.z + s
     );
   }
+
+  addScalarInPlace( s )
+  {
+    this.x += s;
+    this.y += s;
+    this.z += s;
+    return this;
+  }
   
   addVec( v )
   {
@@ -286,10 +321,23 @@ class Vec3
       this.z + v.z
     );
   }
+
+  addVecInPlace( v )
+  {
+    this.x += v.x;
+    this.y += v.y;
+    this.z += v.z;
+    return this;
+  }
   
   subScalar( s )
   {
     return this.addScalar( -s );
+  }
+
+  subScalarInPlace( s )
+  {
+    return this.addScalarInPlace( -s );
   }
   
   subVec( v )
@@ -300,6 +348,14 @@ class Vec3
       this.z - v.z
     );
   }
+
+  subVecInPlace( v )
+  {
+    this.x -= v.x;
+    this.y -= v.y;
+    this.z -= v.z;
+    return this;
+  }
   
   multScalar( s )
   {
@@ -309,6 +365,24 @@ class Vec3
       this.y * s,
       this.z * s
     );
+  }
+
+  multScalarInPlace( s )
+  {
+    
+  }
+
+  multVec( v )
+  {
+    return this.scale( v.x, v.y, v.z );
+  }
+
+  multVecInPlace( v )
+  {
+    this.x *= v.x;
+    this.y *= v.y;
+    this.z *= v.z;
+    return this;
   }
   
   scale( x, y, z )
@@ -329,7 +403,11 @@ class Vec3
   
   cross( v )
   {
-    throw "Unsupported operation";
+    return new Vec3(
+      this.y * v.z - this.z * v.y,
+      this.z * v.x - this.x * v.z,
+      this.x * v.y - this.y * v.x
+    );
   }
   
   // TODO: Implement
@@ -340,5 +418,9 @@ class Vec4
   vec3;
   w;
   
-  constructor( x, y, z, w ) {}
+  constructor( x, y, z, w )
+  {
+    this.vec3 = new Vec3( x, y, z );
+    this.w = w;
+  }
 }
